@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Router } from 'react-router'
+import useScroll from 'react-router-scroll'
 import { Provider } from 'react-redux'
 
 class AppContainer extends React.Component {
@@ -16,7 +17,7 @@ class AppContainer extends React.Component {
     return (
       <Provider store={store}>
         <div style={{ height: '100%' }}>
-          <Router history={history} children={routes} key={routerKey} />
+          <Router history={history} children={routes} key={routerKey} render={applyRouterMiddleware(useScroll())/>
         </div>
       </Provider>
     )
